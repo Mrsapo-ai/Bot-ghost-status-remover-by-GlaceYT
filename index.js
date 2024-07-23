@@ -70,3 +70,33 @@ client.once('ready', () => {
 });
 
 login();
+const { joinVoiceChannel } = require('@discordjs/voice');
+
+client.once('ready', () => {
+
+    const sesKanaliId = '1265428206673203322';
+
+    const sesKanali = client.channels.cache.get(sesKanaliId);
+
+    if (sesKanali) {
+        if (sesKanali.type === 2) {
+
+            const botSesKanali = sesKanali.guild.members.me.voice.channel;
+
+            if (botSesKanali && botSesKanali.id === sesKanaliId) {
+                console.log('Bot zaten ses kanalına bağlı!');
+            } else {
+                joinVoiceChannel({
+                    channelId: sesKanali.id,
+                    guildId: sesKanali.guild.id,
+                    adapterCreator: sesKanali.guild.voiceAdapterCreator,
+                });
+                console.log('Ses kanalına katılındı!');
+            }
+        } else {
+            console.error('Belirtilen kanal bir ses kanalı değil!');
+        }
+    } else {
+        console.error('Belirtilen ses kanalı bulunamadı!');
+    }
+});
