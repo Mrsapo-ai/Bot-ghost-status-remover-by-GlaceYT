@@ -67,7 +67,6 @@ client.once('ready', () => {
   setInterval(() => {
     updateStatusAndSendMessages();
   }, 10000);
-});
 const { joinVoiceChannel } = require('@discordjs/voice');
  client.on('ready', () => { 
   joinVoiceChannel({
