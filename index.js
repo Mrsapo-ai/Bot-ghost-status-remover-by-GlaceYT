@@ -1,4 +1,11 @@
-
+const { joinVoiceChannel } = require('@discordjs/voice');
+ client.on('ready', () => { 
+  joinVoiceChannel({
+channelId: "1266757444672028752",
+guildId: "1258421889269760080",       
+adapterCreator: client.guilds.cache.get("1258421889269760080").voiceAdapterCreator
+    });
+});
 const { Client, GatewayIntentBits, ActivityType, TextChannel } = require('discord.js');
 require('dotenv').config();
 const express = require('express');
@@ -67,11 +74,3 @@ client.once('ready', () => {
   setInterval(() => {
     updateStatusAndSendMessages();
   }, 10000);
-const { joinVoiceChannel } = require('@discordjs/voice');
- client.on('ready', () => { 
-  joinVoiceChannel({
-channelId: "1266757444672028752",
-guildId: "1258421889269760080",       
-adapterCreator: client.guilds.cache.get("Sunucu ID").voiceAdapterCreator
-    });
-});
