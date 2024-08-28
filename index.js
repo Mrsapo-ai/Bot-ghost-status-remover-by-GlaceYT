@@ -21,7 +21,7 @@ app.listen(port, () => {
 });
 
 
-const statusMessages = ["Çayhane 💙2acd.","Yetkilileri Kontrol Ediyor✨"];
+const statusMessages = ["Çayhane 💙2acd.","Kayıtlıları Kontrol Ediyor✨","Kayıt İşlemlerini Hallediyor"];
 
 
 let currentIndex = 0;
